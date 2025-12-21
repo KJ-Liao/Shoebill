@@ -19,6 +19,7 @@ conda activate shoebill_env
 
 ## 2) Feature generation
 (1) Download and navigate to the Feature_generation folder
+
 (2) Navigate to the bin folder,
     download and install the following six required execute/bin file to the bin folder
  
