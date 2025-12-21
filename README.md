@@ -12,6 +12,7 @@
 Please create the working environment with conda using following command
 
 conda env create -f environment.yml
+
 conda activate shoebill_env
 
 # How to use Shoebill
@@ -30,11 +31,17 @@ conda activate shoebill_env
  - Statistical potential calculation:  1. korpe          (https://chaconlab.org/modeling/korp/down-korp)
                                        2. korp6Dv1.bin   (https://chaconlab.org/modeling/korp/down-korp)
 
+
 (3) Paste the name and corresponding sequence (with or without tag are all ok!) in fasta format to TE_Sequence.fasta
+
 (4) Put your unzipped AlphaFold2 output in the AF_Result folder
+
 (5) Execute AF_Preprocessing.py to preprocess the AlphaFold2 output
+
 python AF_Preprocessing.py TE_Sequence.fasta AF_Result Processed_AF_Result
+
 (6) Execute TE_feature.py to extract the feature and output as a TE_feature.csv file
+
 python TE_feature.py TE_Sequence.fasta Processed_AF_Result TE_feature.csv --bin ./bin
 
 ## 3) Predict based on the given feature csv file
