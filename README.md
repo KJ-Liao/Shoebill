@@ -10,10 +10,10 @@
   - joblib
 
 Please create the working environment with conda using following command
-''''
+
 conda env create -f environment.yml
 conda activate shoebill_env
-''''
+
 # How to use Shoebill
 ## 1) 3D structure prediction using AlphaFold2
 
