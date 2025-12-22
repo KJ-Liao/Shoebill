@@ -37,7 +37,7 @@ Shoebill relies on several external tools for structural and physicochemical fea
 
 Please download and install the following tools, and place the corresponding executable or binary files into the bin/ directory to ensure correct path resolution during runtime.
 
- # - Anaconda (skip if already installed)
+ - ### Anaconda (skip if already installed)
    
    Download Anaconda (64 bit) installer python3.x for linux : https://www.anaconda.com/distribution/#download-section
    
