@@ -1,5 +1,7 @@
 # Shoebill
 
+Shoebill is an interpretable protein crystallization propensity predictor built on an XGBoost framework. It evaluates whether a protein—assuming successful expression and purification—is likely to form diffraction-quality crystals by leveraging a compact yet comprehensive feature set derived from both protein sequence and AlphaFold2 (AF2)-predicted structures.
+
 # Requirements
   - python=3.12.3
   - xgboost=3.0.2
@@ -11,8 +13,10 @@
 
 Please create the working environment with conda using following command
 
+```
 conda env create -f environment.yml
 conda activate shoebill_env
+```
 
 # How to use Shoebill
 ## 1) 3D structure prediction using AlphaFold2
