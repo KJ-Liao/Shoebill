@@ -39,7 +39,8 @@ This step will install all the dependencies required for running Shoebill. After
    
    Download Anaconda (64 bit) installer python3.x for linux : https://www.anaconda.com/distribution/#download-section
    
- - EDTSurf: rapid macromolecular surface calculation <br>
+ - EDTSurf: rapid macromolecular surface calculation
+
    Please download and install EDTSurf from https://aideepmed.com/EDTSurf/
 
    Then, place the `EDTSurf` into the `bin/` directory
@@ -62,7 +63,7 @@ This step will install all the dependencies required for running Shoebill. After
 
    Then, place the `korpe` and `korp6Dv1.bin` into the `bin/` directory
 
-#### Note
+### Note
 
 If the binaries are installed in a different location, the corresponding paths can be manually updated in `shoebill_predict.py`.
 
@@ -115,7 +116,7 @@ python TE_feature.py TE_Sequence.fasta Processed_AF_Result TE_feature.csv --bin 
 
 This step generates 830 structural and sequence-derived features.
 
-Detailed feature definitions and computational procedures are provided in Supplementary_File/Supplementary_File_2.
+Detailed feature definitions and computational procedures are provided in `Supplementary_Files/Supplementary_File_2`.
 
 ---
 
@@ -141,4 +142,7 @@ The output `preds.csv` will contain:
 - `ProteinID` (if provided via `--id-col`)
 - `pred_proba` (probability of "crystallizable")
 - `pred_label` (0/1 using the chosen threshold; default = 0.420)
+
+## Example usage
+
 
