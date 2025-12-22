@@ -42,16 +42,22 @@ This step will install all the dependencies required for running Shoebill. After
    Download Anaconda (64 bit) installer python3.x for linux : https://www.anaconda.com/distribution/#download-section
    
  - EDTSurf
+
    Please download and install EDTSurf from https://aideepmed.com/EDTSurf/
    Then, place the "EDTSurf" into the bin/ directory
+ 
  - DSSP
+
    Please download and install mkdssp from https://github.com/cmbi/dssp
    Then, place the "mkdssp" into the bin/ directory
+  
  - Zernike3d
+   
    Please download and install zernike3d from https://github.com/jerhoud/zernike3
    Then, place the "MakeShape" and "Shpae2Zernike.bin" into the bin/ directory
 
  - KORP
+
    Please download and install korpe from https://chaconlab.org/modeling/korp/down-korp
    Then, place the "korpe" and "korp6Dv1.bin" into the bin/ directory
 
