@@ -31,11 +31,9 @@ conda activate shoebill_env
 
 Once activated, all Shoebill scripts can be executed directly within this environment.
 
-### External dependencies (required binaries)
+### External dependencies (required external tools)
 
 This step will install all the dependencies required for running Shoebill. After installation, please place the corresponding executable or binary files into the bin/ directory to ensure correct path resolution during runtime.
-
-#### Required external tools
 
  - Anaconda (if you have already install, just move on)
    
@@ -65,7 +63,7 @@ This step will install all the dependencies required for running Shoebill. After
 
    Then, place the `korpe` and `korp6Dv1.bin` into the `bin/` directory
 
-##### Note
+#### Note
 
 If the binaries are installed in a different location, the corresponding paths can be manually updated in `shoebill_predict.py`.
 
@@ -79,7 +77,9 @@ The Shoebill workflow consists of three main steps:
 
 (iii) Crystallization propensity prediction
 
-### (i) 3D structure prediction using AlphaFold2
+---
+
+### 3D structure prediction using AlphaFold2
 
 Shoebill requires AlphaFold2-predicted protein structures as input.
 
@@ -88,7 +88,9 @@ https://colab.research.google.com/github/sokrypton/ColabFold/blob/main/AlphaFold
 
 Please download and unzip the AF2 output files for later steps.
 
-### (ii) Feature generation
+---
+
+### Feature generation
 
 Step 1. Prepare input files
 
@@ -114,7 +116,7 @@ This step generates 830 structural and sequence-derived features.
 
 Detailed feature definitions and computational procedures are provided in Supplementary File 2.
 
-### (iii) Crystallization propensity prediction
+### Crystallization propensity prediction
 
 Step 1. Activate environment
 
