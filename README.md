@@ -18,7 +18,7 @@ Shoebill is implemented in Python and requires the following core dependencies:
 - matplotlib==3.9.2
 - joblib
 
-### Environment setup (recommended)
+### Environment Setup (Recommended)
 
 We strongly recommend creating a dedicated conda environment using the provided configuration file `environment.yml` to ensure full compatibility.
 
@@ -31,11 +31,11 @@ conda activate shoebill_env
 
 Once activated, all Shoebill scripts can be executed directly within this environment.
 
-### Required external tools
+### External Dependencies / Required Tools
 
 Shoebill relies on several external tools for structural and physicochemical feature extraction.
 
-Please download and install the following tools, and place the corresponding executable or binary files into the bin/ directory to ensure correct path resolution during runtime.
+Please download and install the following tools, and place the corresponding executable or binary files into the `bin/` directory to ensure correct path resolution during runtime.
 
  - #### Anaconda (skip if already installed)
 
@@ -69,21 +69,21 @@ Please download and install the following tools, and place the corresponding exe
 
 ### Note
 
-If any of these binaries are installed in a different location, the corresponding paths can be manually modified in shoebill_predict.py.
+If any of these binaries are installed in a different location, the corresponding paths can be manually modified in `shoebill_predict.py`.
 
 ## Usage
 
 The Shoebill workflow consists of three main steps:
 
- (1) 3D structure prediction using AlphaFold2
+ (1) 3D Structure Prediction Using AlphaFold2
 
- (2) Feature generation from AF2 outputs
+ (2) Feature Generation from AF2 Outputs
 
- (3) Crystallization propensity prediction
+ (3) Crystallization Propensity Prediction
 
 ---
 
-### 3D structure prediction using AlphaFold2
+### 3D Structure Prediction Using AlphaFold2
 
 Shoebill requires AlphaFold2-predicted protein structures as input.
 
@@ -95,7 +95,7 @@ Please download and unzip the AF2 output files for later steps.
 
 ---
 
-### Feature generation
+### Feature Generation from AF2 Outputs
 
 #### Step 1. Prepare input files
 
@@ -126,7 +126,7 @@ Detailed feature definitions and computational procedures are provided in `Suppl
 
 ---
 
-### Crystallization propensity prediction
+### Crystallization Propensity Prediction
 
 #### Step 1. Activate environment
 
