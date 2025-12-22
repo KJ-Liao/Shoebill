@@ -77,11 +77,11 @@ If any of these binaries are installed in a different location, the correspondin
 
 The Shoebill workflow consists of three main steps:
 
- 1. 3D Structure Prediction Using AlphaFold2
+ - 3D Structure Prediction Using AlphaFold2
     
- 2. Feature Generation from AF2 Outputs
+ - Feature Generation from AF2 Outputs
     
- 3. Crystallization Propensity Prediction
+ - Crystallization Propensity Prediction
 
 ---
 
