@@ -31,7 +31,7 @@ conda activate shoebill_env
 
 Once activated, all Shoebill scripts can be executed directly within this environment.
 
-### External dependencies (required external tools)
+### External external tools
 
 This step will install all the dependencies required for running Shoebill. After installation, please place the corresponding executable or binary files into the bin/ directory to ensure correct path resolution during runtime.
 
@@ -39,25 +39,24 @@ This step will install all the dependencies required for running Shoebill. After
    
    Download Anaconda (64 bit) installer python3.x for linux : https://www.anaconda.com/distribution/#download-section
    
- - EDTSurf
-
+ - EDTSurf: rapid macromolecular surface calculation <br>
    Please download and install EDTSurf from https://aideepmed.com/EDTSurf/
 
    Then, place the `EDTSurf` into the `bin/` directory
  
- - DSSP
+ - DSSP: Secondary structure annotation
 
    Please download and install mkdssp from https://github.com/cmbi/dssp
 
    Then, place the `mkdssp` into the `bin/` directory
-  
- - Zernike3d
+ 
+ - Zernike3d: 3D Zernike descriptor computation
    
    Please download and install zernike3d from https://github.com/jerhoud/zernike3
 
    Then, place the `MakeShape` and `Shpae2Zernike` into the `bin/` directory
 
- - KORP
+ - KORP: Statistical potential calculation
 
    Please download and install korpe from https://chaconlab.org/modeling/korp/down-korp
 
@@ -72,11 +71,11 @@ If the binaries are installed in a different location, the corresponding paths c
 
 The Shoebill workflow consists of three main steps:
 
-(1) 3D structure prediction using AlphaFold2
+ (1) 3D structure prediction using AlphaFold2
 
-(2) Feature generation from AF2 outputs
+ (2) Feature generation from AF2 outputs
 
-(3) Crystallization propensity prediction
+ (3) Crystallization propensity prediction
 
 ---
 
@@ -143,7 +142,3 @@ The output `preds.csv` will contain:
 - `pred_proba` (probability of "crystallizable")
 - `pred_label` (0/1 using the chosen threshold; default = 0.420)
 
-
-## License and citation
-
-Please cite the Shoebill paper if you use this tool in your research.
