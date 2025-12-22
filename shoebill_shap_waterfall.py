@@ -1,0 +1,179 @@
+"""
+Shoebill SHAP Waterfall Plot Generator
+--------------------------------------
+Generate SHAP waterfall plots for each sample in an input CSV.
+
+Usage:
+  python shoebill_shap_waterfall.py \
+    --model shoebill_model \
+    --input case.csv \
+    --output-dir shap_plots \
+    --max-display 11
+"""
+
+import argparse
+import json
+import re
+from pathlib import Path
+
+import joblib
+import numpy as np
+import pandas as pd
+import shap
+import matplotlib.pyplot as plt
+
+
+# ---------- Artifact loader ----------
+
+def load_model(model_dir: str):
+    p = Path(model_dir)
+    if not p.exists():
+        raise FileNotFoundError(f"[ERROR] model folder not found: {model_dir}")
+
+    model = joblib.load(p / "model.joblib")
+
+    with open(p / "features.json") as f:
+        feature_names = json.load(f)
+
+    with open(p / "meta.json") as f:
+        meta = json.load(f)
+
+    return model, feature_names, meta
+
+
+# ---------- Alignment helpers ----------
+
+def align_by_feature_names(df: pd.DataFrame, feature_names):
+    """Strict name-based alignment. Raises KeyError if missing."""
+    missing = [c for c in feature_names if c not in df.columns]
+    if missing:
+        raise KeyError(missing)
+    return df.reindex(columns=feature_names)
+
+
+def align_by_numeric_mapping(df: pd.DataFrame, feature_names):
+    """
+    Your CSV format: [ID | 0 | 1 | 2 | ... | 829]
+    Model features: ['feature_1', 'feature_8', 'feature_13', ...]
+    We assume: 'feature_k' → column str(k-1) in numeric block.
+    """
+    feature_block = df.iloc[:, 1:]  # drop ID column
+
+    # Ensure numeric-like column names = 0..M-1
+    try:
+        as_int = [int(c) for c in feature_block.columns]
+        if sorted(as_int) != list(range(len(as_int))):
+            raise ValueError
+    except Exception:
+        raise ValueError(
+            "[ERROR] Columns 2..end are not numeric 0..N-1; "
+            "cannot use numeric mapping."
+        )
+
+    mapped_numeric_cols = []
+    for fname in feature_names:
+        m = re.match(r"^feature_(\d+)$", str(fname))
+        if not m:
+            raise ValueError(
+                f"[ERROR] Can't parse numeric index from feature name: {fname}. "
+                "Expected pattern like 'feature_13'."
+            )
+        k = int(m.group(1))      # feature_k
+        col_name = str(k - 1)    # <-- 修正：對應到原始欄 (k-1)
+        mapped_numeric_cols.append(col_name)
+
+    missing_numeric = [c for c in mapped_numeric_cols if c not in feature_block.columns]
+    if missing_numeric:
+        raise ValueError(
+            f"[ERROR] Input CSV is missing required numeric columns mapped from feature names: "
+            f"{missing_numeric[:10]} ... (total {len(missing_numeric)})"
+        )
+
+    X_numeric_ordered = feature_block.loc[:, mapped_numeric_cols]
+    X = X_numeric_ordered.copy()
+    X.columns = feature_names  # 改回模型使用的 feature 名稱
+    return X
+
+
+# ---------- Main ----------
+
+def main():
+    ap = argparse.ArgumentParser(description="Shoebill: SHAP waterfall plots for new samples")
+    ap.add_argument("--model", required=True, help="Path to exported model directory")
+    ap.add_argument("--input", required=True, help="CSV with new samples (ID + features)")
+    ap.add_argument("--output-dir", required=True, help="Directory to save SHAP waterfall PDFs")
+    ap.add_argument("--max-display", type=int, default=11, help="Max number of features to show in waterfall")
+    args = ap.parse_args()
+
+    # 1. Load model + meta
+    model, feature_names, meta = load_model(args.model)
+
+    # 2. Load input cases
+    df = pd.read_csv(args.input)
+    if df.shape[1] < (1 + len(feature_names)):
+        raise ValueError(
+            f"[ERROR] Input has {df.shape[1]} columns but needs at least 1(ID) + {len(feature_names)} features."
+        )
+
+    # 第一欄視為 ID（不管叫什麼），用來命名輸出檔
+    id_col_name = df.columns[0]
+    id_series = df.iloc[:, 0].astype(str).copy()
+
+    # 3. Align features
+    try:
+        # 3-1. 嘗試用 feature name 對齊
+        X = align_by_feature_names(df, feature_names)
+    except KeyError:
+        # 3-2. 若名稱對不上，改用 numeric mapping（feature_k → 欄 k-1）
+        X = align_by_numeric_mapping(df, feature_names)
+
+    # 去掉 ID 那一欄（align_by_feature_names 時會包含它，故重 reindex）
+    X = X.loc[:, feature_names]
+
+    # 4. 檢查 NaN
+    if X.isnull().any().any():
+        where_nan = np.argwhere(np.isnan(X.to_numpy()))
+        raise ValueError(
+            f"[ERROR] NaN values detected in aligned feature matrix at positions (row,col): "
+            f"{where_nan[:5].tolist()} ..."
+        )
+
+    # 5. 建立 SHAP explainer（使用樣本本身或其子集當 background）
+    # 若你想用訓練集當 background，可以改成讀 Raw_Data 再 sample。
+    if len(X) > 1000:
+        bg = shap.sample(X, 1000, random_state=42)
+    else:
+        bg = X
+
+    explainer = shap.TreeExplainer(
+        model,
+        data=bg,
+        feature_perturbation="interventional",
+        model_output="probability",
+    )
+
+    shap_values = explainer(X)  # shap.Explanation
+
+    # 6. 為每個樣本畫 waterfall
+    out_dir = Path(args.output_dir)
+    out_dir.mkdir(parents=True, exist_ok=True)
+
+    for idx in range(len(X)):
+        row_exp = shap_values[idx]
+        sample_id = id_series.iloc[idx]
+
+        plt.figure()
+        shap.plots.waterfall(row_exp, max_display=args.max_display, show=False)
+        plt.gca().set_xlabel("Δ Predicted probability")
+        plt.tight_layout()
+
+        fname = out_dir / f"Pred_prob_{sample_id}.pdf"
+        plt.savefig(fname, dpi=300, bbox_inches="tight")
+        plt.close()
+
+    print(f"[OK] Generated {len(X)} SHAP waterfall plots in: {out_dir.resolve()}")
+
+
+if __name__ == "__main__":
+    main()
+
