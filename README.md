@@ -101,7 +101,7 @@ Please download and unzip the AF2 output files for later steps.
 
 #### (1) Prepare input files
 
- - Navigate to the `Feature_generation/` directory
+ - Navigate to the `Example/` directory
  
  - Provide the target protein sequence in FASTA format (with or without affinity tags) as `TE_Sequence.fasta`
 
@@ -142,7 +142,7 @@ conda activate shoebill_env
 ```bash
 python shoebill_predict.py \
     --model shoebill_model \
-    --input feature.csv \
+    --input TE_feature.csv \
     --output preds.csv \
     --threshold 0.420 \
 ```
