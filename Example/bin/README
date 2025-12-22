@@ -1,3 +1,27 @@
 Please download and install the required external tools, and place the corresponding executable or binary files here to ensure correct path resolution during runtime.
 
 If any of these binaries are installed in a different location, the corresponding paths can be manually modified in "shoebill_predict.py".
+
+ - EDTSurf: Rapid macromolecular surface generation
+
+   Available in: https://aideepmed.com/EDTSurf/
+
+   Place the `EDTSurf` executable into `bin/` after installation.
+ 
+ - DSSP: Secondary structure annotation
+
+   Available in: https://github.com/cmbi/dssp
+
+   Place the `mkdssp` executable into `bin/` after installation.
+ 
+ - Zernike3d: 3D Zernike descriptor computation
+   
+   Available in: https://github.com/jerhoud/zernike3d
+
+   Place the `MakeShape` and `Shpae2Zernike` executables into `bin/` after installation.
+
+ - KORP: Statistical potential calculation
+
+   Available in: https://chaconlab.org/modeling/korp/down-korp
+
+   Place the `korpe` executable and `korp6Dv1.bin` into `bin/` after installation.
