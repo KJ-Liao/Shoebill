@@ -4,7 +4,9 @@ Shoebill is an interpretable protein crystallization propensity predictor built 
 
 ---
 
-## Requirements
+## Installation
+
+### Requirements
 
 Shoebill is implemented in Python and requires the following core dependencies:
 
@@ -18,13 +20,37 @@ Shoebill is implemented in Python and requires the following core dependencies:
 
 ### Environment setup (recommended)
 
-We strongly recommend creating a dedicated conda environment using the supplied configuration file `environment.yml` to ensure full compatibility:
+We strongly recommend creating a dedicated conda environment using the supplied configuration file `environment.yml` to ensure full compatibility.
+
+If if you didn't install anaconda before, please see Install Anaconda section below.
 
 ```bash
 conda env create -f environment.yml
 conda activate shoebill_env
 ```
 
+Once activated, all Shoebill scripts can be executed directly within this environment.
+
+### External dependencies (required binaries)
+
+This step will install all the dependencies required for running Shoebill.
+
+After installation, please place the corresponding executable or binary files into the bin/ directory to ensure correct path resolution during runtime.
+
+#### Required external tools
+
+ - Install Anaconda (if you have already install, just move on)
+    (i) Download Anaconda (64 bit) installer python3.x for linux : https://www.anaconda.com/distribution/#download-section
+    (ii) Run the installer : bash Anaconda3-2019.03-Linux-x86_64.sh and follow the instructions to install.
+    (iii) Install xgboost: conda install -c conda-forge xgboost
+    (iv) Install shap: conda install -c conda-forge shap
+    (v) Install Bio: conda install -c anaconda biopython
+ - Molecular surface generation:   EDTSurf (https://aideepmed.com/EDTSurf/)
+ - Secondary structure annotation: mkdssp  (https://github.com/cmbi/dssp)
+ - 3DZD computation: 1. MakeShape          (https://github.com/jerhoud/zernike3d)
+                     2. Shpae2Zernike      (https://github.com/jerhoud/zernike3d)
+ - Statistical potential calculation:  1. korpe          (https://chaconlab.org/modeling/korp/down-korp)
+                                       2. korp6Dv1.bin   (https://chaconlab.org/modeling/korp/down-korp)
 # How to use Shoebill
 ## 1) 3D structure prediction using AlphaFold2
 
@@ -33,15 +59,7 @@ ColabFold: https://colab.research.google.com/github/sokrypton/ColabFold/blob/mai
 ## 2) Feature generation
 (1) Download and navigate to the Feature_generation folder
 
-(2) Navigate to the bin folder,
-    download and install the following six required execute/bin file to the bin folder
- 
- - Molecular surface generation:   EDTSurf (https://aideepmed.com/EDTSurf/)
- - Secondary structure annotation: mkdssp  (https://github.com/cmbi/dssp)
- - 3DZD computation: 1. MakeShape          (https://github.com/jerhoud/zernike3d)
-                     2. Shpae2Zernike      (https://github.com/jerhoud/zernike3d)
- - Statistical potential calculation:  1. korpe          (https://chaconlab.org/modeling/korp/down-korp)
-                                       2. korp6Dv1.bin   (https://chaconlab.org/modeling/korp/down-korp)
+
 
 
 (3) Paste the name and corresponding sequence (with or without tag are all ok!) in fasta format to TE_Sequence.fasta
