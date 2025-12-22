@@ -153,6 +153,18 @@ The output `preds.csv` will contain:
 - `pred_proba` (probability of "crystallizable")
 - `pred_label` (0/1 using the chosen threshold; default = 0.420)
 
-## Example usage
+---
 
+### SHAP Analysis (Optional)
 
+Shoebill supports SHAP-based interpretation to explain individual predictions at the feature level. 
+
+This optional step generates SHAP waterfall plots for each input sample, illustrating how individual features contribute to the predicted crystallization propensity.
+
+```bash
+  python shoebill_shap_waterfall.py \
+    --model shoebill_model \
+    --input TE_feature.csv \
+    --output-dir shap_plots \
+    --max-display 11
+```
