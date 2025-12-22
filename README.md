@@ -33,18 +33,16 @@ Once activated, all Shoebill scripts can be executed directly within this enviro
 
 ### External dependencies (required binaries)
 
-This step will install all the dependencies required for running Shoebill.
-
-After installation, please place the corresponding executable or binary files into the bin/ directory to ensure correct path resolution during runtime.
+This step will install all the dependencies required for running Shoebill. After installation, please place the corresponding executable or binary files into the bin/ directory to ensure correct path resolution during runtime.
 
 #### Required external tools
 
  - Install Anaconda (if you have already install, just move on)
-    (i) Download Anaconda (64 bit) installer python3.x for linux : https://www.anaconda.com/distribution/#download-section
-    (ii) Run the installer : bash Anaconda3-2019.03-Linux-x86_64.sh and follow the instructions to install.
-    (iii) Install xgboost: conda install -c conda-forge xgboost
-    (iv) Install shap: conda install -c conda-forge shap
-    (v) Install Bio: conda install -c anaconda biopython
+   (i) Download Anaconda (64 bit) installer python3.x for linux : https://www.anaconda.com/distribution/#download-section
+   (ii) Run the installer : bash Anaconda3-2019.03-Linux-x86_64.sh and follow the instructions to install.
+   (iii) Install xgboost: conda install -c conda-forge xgboost
+   (iv) Install shap: conda install -c conda-forge shap
+   (v) Install Bio: conda install -c anaconda biopython
  - Molecular surface generation:   EDTSurf (https://aideepmed.com/EDTSurf/)
  - Secondary structure annotation: mkdssp  (https://github.com/cmbi/dssp)
  - 3DZD computation: 1. MakeShape          (https://github.com/jerhoud/zernike3d)
