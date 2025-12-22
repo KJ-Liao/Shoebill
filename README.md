@@ -79,7 +79,7 @@ The Shoebill workflow consists of three main steps:
 
 (iii) Crystallization propensity prediction
 
-## (i) 3D structure prediction using AlphaFold2
+### (i) 3D structure prediction using AlphaFold2
 
 Shoebill requires AlphaFold2-predicted protein structures as input.
 
@@ -88,7 +88,7 @@ https://colab.research.google.com/github/sokrypton/ColabFold/blob/main/AlphaFold
 
 Please download and unzip the AF2 output files for later steps.
 
-## (ii) Feature generation
+### (ii) Feature generation
 
 Step 1. Prepare input files
 
@@ -114,18 +114,29 @@ This step generates 830 structural and sequence-derived features.
 
 Detailed feature definitions and computational procedures are provided in Supplementary File 2.
 
-## (iii) Crystallization propensity prediction
+### (iii) Crystallization propensity prediction
 
-(1) Activate environment
+Step 1. Activate environment
+
+```bash
 conda activate shoebill_env
-(2) Predict
+```
+
+Step 2. Run prediction
+
+```bash
 python shoebill_predict.py \
     --model shoebill_model \
     --input feature.csv \
     --output preds.csv \
     --threshold 0.420 \
+```
 
-The output `PRED.csv` will contain:
+The output `preds.csv` will contain:
 - `ProteinID` (if provided via `--id-col`)
 - `pred_proba` (probability of "crystallizable")
 - `pred_label` (0/1 using the chosen threshold; default = 0.420)
+
+## License and citation
+
+Please cite the Shoebill paper if you use this tool in your research.
