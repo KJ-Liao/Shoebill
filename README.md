@@ -37,29 +37,31 @@ Shoebill relies on several external tools for structural and physicochemical fea
 
 Please download and install the following tools, and place the corresponding executable or binary files into the bin/ directory to ensure correct path resolution during runtime.
 
- - ### Anaconda (skip if already installed)
-   
-   Download Anaconda (64 bit) installer python3.x for linux : https://www.anaconda.com/distribution/#download-section
-   
- - EDTSurf: rapid macromolecular surface calculation
+ - #### Anaconda (skip if already installed)
 
-   Please download and install EDTSurf from https://aideepmed.com/EDTSurf/
+   Download the 64-bit Python 3.x installer for Linux:
+   
+   https://www.anaconda.com/distribution/#download-section
+   
+ - #### EDTSurf: rapid macromolecular surface calculation
 
-   Then, place the `EDTSurf` into the `bin/` directory
+   Available in: https://aideepmed.com/EDTSurf/
+
+   Place the `EDTSurf` executable into `bin/` after installation.
  
- - DSSP: Secondary structure annotation
+ - #### DSSP: Secondary structure annotation
 
    Please download and install mkdssp from https://github.com/cmbi/dssp
 
    Then, place the `mkdssp` into the `bin/` directory
  
- - Zernike3d: 3D Zernike descriptor computation
+ - #### Zernike3d: 3D Zernike descriptor computation
    
    Please download and install zernike3d from https://github.com/jerhoud/zernike3
 
    Then, place the `MakeShape` and `Shpae2Zernike` into the `bin/` directory
 
- - KORP: Statistical potential calculation
+ - #### KORP: Statistical potential calculation
 
    Please download and install korpe from https://chaconlab.org/modeling/korp/down-korp
 
