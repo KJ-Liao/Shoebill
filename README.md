@@ -1,5 +1,7 @@
 # Shoebill
 
+![Shoebill workflow](Shoebill.png)
+
 Shoebill is an interpretable protein crystallization propensity predictor built on an XGBoost framework. It evaluates whether a protein—assuming successful expression and purification—is likely to form diffraction-quality crystals by leveraging a compact yet comprehensive feature set derived from both protein sequence and AlphaFold2 (AF2)-predicted structures.
 
 ---
