@@ -20,9 +20,9 @@ Shoebill is implemented in Python and requires the following core dependencies:
 
 ### Environment setup (recommended)
 
-We strongly recommend creating a dedicated conda environment using the supplied configuration file `environment.yml` to ensure full compatibility.
+We strongly recommend creating a dedicated conda environment using the provided configuration file `environment.yml` to ensure full compatibility.
 
-If if you didn't install anaconda before, please see Install Anaconda section below.
+If you have not installed Anaconda yet, please refer to the installation instructions below.
 
 ```bash
 conda env create -f environment.yml
@@ -31,11 +31,13 @@ conda activate shoebill_env
 
 Once activated, all Shoebill scripts can be executed directly within this environment.
 
-### External external tools
+### Required external tools
 
-This step will install all the dependencies required for running Shoebill. After installation, please place the corresponding executable or binary files into the bin/ directory to ensure correct path resolution during runtime.
+Shoebill relies on several external tools for structural and physicochemical feature extraction.
 
- - Anaconda (if you have already install, just move on)
+Please download and install the following tools, and place the corresponding executable or binary files into the bin/ directory to ensure correct path resolution during runtime.
+
+ # - Anaconda (skip if already installed)
    
    Download Anaconda (64 bit) installer python3.x for linux : https://www.anaconda.com/distribution/#download-section
    
