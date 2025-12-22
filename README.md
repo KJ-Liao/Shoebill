@@ -59,7 +59,7 @@ Please download and install the following tools, and place the corresponding exe
  
  - #### Zernike3d: 3D Zernike descriptor computation
    
-   Available in: https://github.com/jerhoud/zernike3
+   Available in: https://github.com/jerhoud/zernike3d
 
    Place the `MakeShape` and `Shpae2Zernike` executables into `bin/` after installation.
 
@@ -85,7 +85,7 @@ The Shoebill workflow consists of three main steps:
 
 ---
 
-### 3D Structure Prediction Using AlphaFold2
+### Step 1. 3D Structure Prediction Using AlphaFold2
 
 Shoebill requires AlphaFold2-predicted protein structures as input.
 
@@ -97,9 +97,9 @@ Please download and unzip the AF2 output files for later steps.
 
 ---
 
-### Feature Generation from AF2 Outputs
+### Step 2. Feature Generation from AF2 Outputs
 
-#### Step 1. Prepare input files
+#### (1) Prepare input files
 
  - Navigate to the `Feature_generation/` directory
  
@@ -108,14 +108,14 @@ Please download and unzip the AF2 output files for later steps.
  - Place the unzipped AlphaFold2 output into the `AF_Result/` directory
 
 
-#### Step 2. Preprocess AF2 outputs
+#### (2) Preprocess AF2 outputs
 
 ```bash
 python AF_Preprocessing.py TE_Sequence.fasta AF_Result Processed_AF_Result
 ```
 
 
-#### Step 3. Extract features
+#### (3) Extract features
 
 ```bash
 python TE_feature.py TE_Sequence.fasta Processed_AF_Result TE_feature.csv --bin ./bin
@@ -128,16 +128,16 @@ Detailed feature definitions and computational procedures are provided in `Suppl
 
 ---
 
-### Crystallization Propensity Prediction
+### Step 3. Crystallization Propensity Prediction
 
-#### Step 1. Activate environment
+#### (1) Activate environment
 
 ```bash
 conda activate shoebill_env
 ```
 
 
-#### Step 2. Run prediction
+#### (2) Run prediction
 
 ```bash
 python shoebill_predict.py \
