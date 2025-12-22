@@ -16,15 +16,14 @@ Shoebill is implemented in Python and requires the following core dependencies:
 - matplotlib==3.9.2
 - joblib
 
-We strongly recommend creating a dedicated conda environment using the provided `environment.yml` file to ensure full compatibility.
-
 ### Environment setup (recommended)
 
-We strongly recommend creating a dedicated conda environment using the supplied configuration file:
+We strongly recommend creating a dedicated conda environment using the supplied configuration file `environment.yml` to ensure full compatibility:
 
 ```bash
 conda env create -f environment.yml
 conda activate shoebill_env
+```
 
 # How to use Shoebill
 ## 1) 3D structure prediction using AlphaFold2
