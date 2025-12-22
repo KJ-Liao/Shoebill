@@ -39,11 +39,11 @@ Please download and install the following tools, and place the corresponding exe
 
  - #### Anaconda (skip if already installed)
 
-   Download the 64-bit Python 3.x installer for Linux:
+   Download the 64-bit Python 3.x installer for Linux.
    
-   https://www.anaconda.com/distribution/#download-section
+   Available in: https://www.anaconda.com/distribution/#download-section
    
- - #### EDTSurf: rapid macromolecular surface calculation
+ - #### EDTSurf: Rapid macromolecular surface generation
 
    Available in: https://aideepmed.com/EDTSurf/
 
@@ -51,26 +51,25 @@ Please download and install the following tools, and place the corresponding exe
  
  - #### DSSP: Secondary structure annotation
 
-   Please download and install mkdssp from https://github.com/cmbi/dssp
+   Available in: https://github.com/cmbi/dssp
 
-   Then, place the `mkdssp` into the `bin/` directory
+   Place the `mkdssp` executable into `bin/` after installation.
  
  - #### Zernike3d: 3D Zernike descriptor computation
    
-   Please download and install zernike3d from https://github.com/jerhoud/zernike3
+   Available in: https://github.com/jerhoud/zernike3
 
-   Then, place the `MakeShape` and `Shpae2Zernike` into the `bin/` directory
+   Place the `MakeShape` and `Shpae2Zernike` executables into `bin/` after installation.
 
  - #### KORP: Statistical potential calculation
 
-   Please download and install korpe from https://chaconlab.org/modeling/korp/down-korp
+   Available in: https://chaconlab.org/modeling/korp/down-korp
 
-   Then, place the `korpe` and `korp6Dv1.bin` into the `bin/` directory
+   Place the `korpe` executable and `korp6Dv1.bin` into `bin/` after installation.
 
 ### Note
 
-If the binaries are installed in a different location, the corresponding paths can be manually updated in `shoebill_predict.py`.
-
+If any of these binaries are installed in a different location, the corresponding paths can be manually modified in shoebill_predict.py.
 
 ## Usage
 
@@ -98,25 +97,28 @@ Please download and unzip the AF2 output files for later steps.
 
 ### Feature generation
 
-Step 1. Prepare input files
+#### Step 1. Prepare input files
 
  - Navigate to the `Feature_generation/` directory
-
- - Provide the target protein sequence in FASTA format (with or without tag are all ok!) with file name: `TE_Sequence.fasta`
+ 
+ - Provide the target protein sequence in FASTA format (with or without affinity tags) as `TE_Sequence.fasta`
 
  - Place the unzipped AlphaFold2 output into the `AF_Result/` directory
 
-Step 2. Preprocess AF2 outputs
+
+#### Step 2. Preprocess AF2 outputs
 
 ```bash
 python AF_Preprocessing.py TE_Sequence.fasta AF_Result Processed_AF_Result
 ```
 
-Step 3. Extract features
+
+#### Step 3. Extract features
 
 ```bash
 python TE_feature.py TE_Sequence.fasta Processed_AF_Result TE_feature.csv --bin ./bin
 ```
+
 
 This step generates 830 structural and sequence-derived features.
 
@@ -126,13 +128,14 @@ Detailed feature definitions and computational procedures are provided in `Suppl
 
 ### Crystallization propensity prediction
 
-Step 1. Activate environment
+#### Step 1. Activate environment
 
 ```bash
 conda activate shoebill_env
 ```
 
-Step 2. Run prediction
+
+#### Step 2. Run prediction
 
 ```bash
 python shoebill_predict.py \
@@ -141,6 +144,7 @@ python shoebill_predict.py \
     --output preds.csv \
     --threshold 0.420 \
 ```
+
 
 The output `preds.csv` will contain:
 - `ProteinID` (if provided via `--id-col`)
