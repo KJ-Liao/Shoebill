@@ -44,47 +44,78 @@ This step will install all the dependencies required for running Shoebill. After
  - EDTSurf
 
    Please download and install EDTSurf from https://aideepmed.com/EDTSurf/
-   Then, place the "EDTSurf" into the bin/ directory
+
+   Then, place the `EDTSurf` into the `bin/` directory
  
  - DSSP
 
    Please download and install mkdssp from https://github.com/cmbi/dssp
-   Then, place the "mkdssp" into the bin/ directory
+
+   Then, place the `mkdssp` into the `bin/` directory
   
  - Zernike3d
    
    Please download and install zernike3d from https://github.com/jerhoud/zernike3
-   Then, place the "MakeShape" and "Shpae2Zernike.bin" into the bin/ directory
+
+   Then, place the `MakeShape` and `Shpae2Zernike` into the `bin/` directory
 
  - KORP
 
    Please download and install korpe from https://chaconlab.org/modeling/korp/down-korp
-   Then, place the "korpe" and "korp6Dv1.bin" into the bin/ directory
 
-# How to use Shoebill
-## 1) 3D structure prediction using AlphaFold2
+   Then, place the `korpe` and `korp6Dv1.bin` into the `bin/` directory
 
-ColabFold: https://colab.research.google.com/github/sokrypton/ColabFold/blob/main/AlphaFold2.ipynb
+##### Note
 
-## 2) Feature generation
-(1) Download and navigate to the Feature_generation folder
+If the binaries are installed in a different location, the corresponding paths can be manually updated in `shoebill_predict.py`.
 
+## Usage
 
+The Shoebill workflow consists of three main steps:
 
+(i) 3D structure prediction using AlphaFold2
 
-(3) Paste the name and corresponding sequence (with or without tag are all ok!) in fasta format to TE_Sequence.fasta
+(ii) Feature generation from AF2 outputs
 
-(4) Put your unzipped AlphaFold2 output in the AF_Result folder
+(iii) Crystallization propensity prediction
 
-(5) Execute AF_Preprocessing.py to preprocess the AlphaFold2 output
+## (i) 3D structure prediction using AlphaFold2
 
+Shoebill requires AlphaFold2-predicted protein structures as input.
+
+A convenient way to generate AF2 models is via ColabFold:
+https://colab.research.google.com/github/sokrypton/ColabFold/blob/main/AlphaFold2.ipynb
+
+Please download and unzip the AF2 output files for later steps.
+
+## (ii) Feature generation
+
+Step 1. Prepare input files
+
+ - Navigate to the `Feature_generation/` directory
+
+ - Provide the target protein sequence in FASTA format (with or without tag are all ok!) with file name: `TE_Sequence.fasta`
+
+ - Place the unzipped AlphaFold2 output into the `AF_Result/` directory
+
+Step 2. Preprocess AF2 outputs
+
+```bash
 python AF_Preprocessing.py TE_Sequence.fasta AF_Result Processed_AF_Result
+```
 
-(6) Execute TE_feature.py to extract the feature and output as a TE_feature.csv file
+Step 3. Extract features
 
+```bash
 python TE_feature.py TE_Sequence.fasta Processed_AF_Result TE_feature.csv --bin ./bin
+```
 
-## 3) Predict based on the given feature csv file
+This step generates 830 structural and sequence-derived features.
+
+Detailed feature definitions and computational procedures are provided in Supplementary File 2.
+
+## (iii) Crystallization propensity prediction
+
 (1) Activate environment
 conda activate shoebill_env
 (2) Predict
