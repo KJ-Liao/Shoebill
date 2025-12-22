@@ -1,1 +1,3 @@
+Please download and install the required external tools, and place the corresponding executable or binary files here to ensure correct path resolution during runtime.
 
+If any of these binaries are installed in a different location, the corresponding paths can be manually modified in 'shoebill_predict.py'.
