@@ -2,6 +2,7 @@ Please download and install the required external tools, and place the correspon
 
 If any of these binaries are installed in a different location, the corresponding paths can be manually modified in "shoebill_predict.py".
 
+
  - EDTSurf: Rapid macromolecular surface generation
 
    Available in: https://aideepmed.com/EDTSurf/
