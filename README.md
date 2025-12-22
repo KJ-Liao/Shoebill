@@ -67,15 +67,16 @@ This step will install all the dependencies required for running Shoebill. After
 
 If the binaries are installed in a different location, the corresponding paths can be manually updated in `shoebill_predict.py`.
 
+
 ## Usage
 
 The Shoebill workflow consists of three main steps:
 
-(i) 3D structure prediction using AlphaFold2
+(1) 3D structure prediction using AlphaFold2
 
-(ii) Feature generation from AF2 outputs
+(2) Feature generation from AF2 outputs
 
-(iii) Crystallization propensity prediction
+(3) Crystallization propensity prediction
 
 ---
 
@@ -84,6 +85,7 @@ The Shoebill workflow consists of three main steps:
 Shoebill requires AlphaFold2-predicted protein structures as input.
 
 A convenient way to generate AF2 models is via ColabFold:
+
 https://colab.research.google.com/github/sokrypton/ColabFold/blob/main/AlphaFold2.ipynb
 
 Please download and unzip the AF2 output files for later steps.
@@ -114,9 +116,9 @@ python TE_feature.py TE_Sequence.fasta Processed_AF_Result TE_feature.csv --bin 
 
 This step generates 830 structural and sequence-derived features.
 
-Detailed feature definitions and computational procedures are provided in Supplementary File 2.
+Detailed feature definitions and computational procedures are provided in Supplementary_File/Supplementary_File_2.
 
---
+---
 
 ### Crystallization propensity prediction
 
@@ -140,6 +142,7 @@ The output `preds.csv` will contain:
 - `ProteinID` (if provided via `--id-col`)
 - `pred_proba` (probability of "crystallizable")
 - `pred_label` (0/1 using the chosen threshold; default = 0.420)
+
 
 ## License and citation
 
