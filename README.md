@@ -8,9 +8,20 @@ Shoebill is an interpretable protein crystallization propensity predictor built 
 
 ## Shoebill Colab Notebook
 
-A convenient way to use Shoebill is via ColabFold:
+A convenient way to use Shoebill is via Google Colab:
 
 https://colab.research.google.com/github/KJ-Liao/Shoebill/blob/main/Shoebill.ipynb
+
+The notebook only requires an AlphaFold-generated ZIP file as input.
+These ZIP files are typically produced by ColabFold AlphaFold2:
+
+https://colab.research.google.com/github/sokrypton/ColabFold/blob/main/AlphaFold2.ipynb
+
+### Note
+
+The Colab notebook currently supports only one input file at a time.
+
+If you need batch processing, please install Shoebill locally and follow the instructions below.
 
 ## Installation (local)
 
