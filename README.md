@@ -169,3 +169,5 @@ This optional step generates SHAP waterfall plots for each input sample, illustr
     --output-dir shap_plots \
     --max-display 11
 ```
+
+Detailed feature definitions and computational procedures are provided in Supplementary_Files/Supplementary_File_2.
