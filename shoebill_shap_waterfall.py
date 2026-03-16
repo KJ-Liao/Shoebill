@@ -158,11 +158,15 @@ def main():
         shap.plots.waterfall(row_exp, max_display=args.max_display, show=False)
         plt.gca().set_xlabel("Δ Predicted probability")
         plt.tight_layout()
-
-        fname = out_dir / f"Pred_prob_{sample_id}.pdf"
-        plt.savefig(fname, dpi=300, bbox_inches="tight")
+      
+        pdf_fname = out_dir / f"Pred_prob_{sample_id}.pdf"
+        plt.savefig(pdf_fname, dpi=300, bbox_inches="tight", format='pdf')
+      
+        png_fname = out_dir / f"Pred_prob_{sample_id}.png"
+        plt.savefig(png_fname, dpi=300, bbox_inches="tight", format='png')
+      
         plt.close()
-
+      
     print(f"[OK] Generated {len(X)} SHAP waterfall plots in: {out_dir.resolve()}")
 
 if __name__ == "__main__":
