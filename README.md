@@ -165,6 +165,7 @@ This optional step generates SHAP waterfall plots for each input sample, illustr
   python shoebill_shap_waterfall.py \
     --model shoebill_model \
     --input TE_feature.csv \
+    --train-data TR_feature_3000.csv \
     --output-dir shap_plots \
     --max-display 11
 ```
