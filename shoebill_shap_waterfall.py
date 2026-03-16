@@ -2,7 +2,6 @@
 Shoebill SHAP Waterfall Plot Generator
 ----------------------------------------------
 Generate SHAP waterfall plots for each sample in an input CSV.
-**必須提供訓練集**當 background，否則 SHAP 值會不準。
 
 Usage:
   python shoebill_shap_waterfall.py \
