@@ -2,13 +2,17 @@
 
 Shoebill is an interpretable protein crystallization propensity predictor built on an XGBoost framework. It evaluates whether a protein—assuming successful expression and purification—is likely to form diffraction-quality crystals by leveraging a compact yet comprehensive feature set derived from both protein sequence and AlphaFold2 (AF2)-predicted structures. 
 
-[![Open In Colab]](https://colab.research.google.com/github/KJ-Liao/Shoebill/blob/main/Shoebill.ipynb)
-
 ![Shoebill workflow](Shoebill.png)
 
 ---
 
-## Installation
+## Shoebill Colab Notebook
+
+A convenient way to use Shoebill is via ColabFold:
+
+https://colab.research.google.com/github/KJ-Liao/Shoebill/blob/main/Shoebill.ipynb
+
+## Installation (local)
 
 ### Requirements
 
@@ -75,7 +79,7 @@ Please download and install the following tools, and place the corresponding exe
 
 If any of these binaries are installed in a different location, the corresponding paths can be manually modified in `shoebill_predict.py`.
 
-## Usage
+## Usage (local)
 
 The Shoebill workflow consists of three main steps:
 
