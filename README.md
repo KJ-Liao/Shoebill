@@ -13,7 +13,8 @@ A convenient way to use Shoebill is via Google Colab:
 https://colab.research.google.com/github/KJ-Liao/Shoebill/blob/main/Shoebill.ipynb
 
 The notebook only requires an AlphaFold-generated ZIP file as input.
-These ZIP files are typically produced by ColabFold AlphaFold2:
+
+The required ZIP file can be generated using ColabFold AlphaFold2 with default settings.
 
 https://colab.research.google.com/github/sokrypton/ColabFold/blob/main/AlphaFold2.ipynb
 
@@ -23,7 +24,7 @@ The Colab notebook currently supports only one input file at a time.
 
 If you need batch processing, please install Shoebill locally and follow the instructions below.
 
-## Installation (local)
+## Installation (Local)
 
 ### Requirements
 
@@ -90,7 +91,7 @@ Please download and install the following tools, and place the corresponding exe
 
 If any of these binaries are installed in a different location, the corresponding paths can be manually modified in `shoebill_predict.py`.
 
-## Usage (local)
+## Usage (Local)
 
 The Shoebill workflow consists of three main steps:
 
@@ -106,7 +107,7 @@ The Shoebill workflow consists of three main steps:
 
 Shoebill requires AlphaFold2-predicted protein structures as input.
 
-A convenient way to generate AF2 models is via ColabFold:
+A convenient way to generate AF2 models is via ColabFold with default settings:
 
 https://colab.research.google.com/github/sokrypton/ColabFold/blob/main/AlphaFold2.ipynb
 
