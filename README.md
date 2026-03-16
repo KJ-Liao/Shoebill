@@ -6,7 +6,7 @@ Shoebill is an interpretable protein crystallization propensity predictor built 
 
 ---
 
-## Shoebill Colab Notebook
+## Shoebill Colab
 
 A convenient way to use Shoebill is via Google Colab:
 
