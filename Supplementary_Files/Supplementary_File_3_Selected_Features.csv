@@ -1,0 +1,37 @@
+﻿Feature ID,Short Name,Category,Brief Description,Computation
+8,Count_E,Sequence,Count of amino acid E,Count E residues in whole sequence
+13,Count_K,Sequence,Count of amino acid K,Count K residues in whole sequence
+54,Global_CG,Sequence,Charge weighted by AA composition,Charge_AAindex*AAC sum over 20 AAs
+72,Surf_Count_L,Surface,Surface count of amino acid L,Count L residues on molecular surface
+85,Surf_Count_Pol,Surface,"Surface count of polar amino acids (S,T,N,Q,C,Y)","Count residues of polar amino acids (S,T,N,Q,C,Y) on molecular surface"
+89,Surf_Frac_N,Surface,Surface fraction of amino acid N,Surf_Count_N / No_of_surface_residues
+98,Surf_Frac_K,Surface,Surface fraction of amino acid K,Surf_Count_K / No_of_surface_residues
+103,Surf_Frac_T,Surface,Surface fraction of amino acid T,Surf_Count_T / No_of_surface_residues
+110,Surf_Frac_Pol,Surface,"Surface fraction of polar amino acids (S,T,N,Q,C,Y)",Surf_Count_Pol / No_of_surface_residues
+122,Surf_Dens_L,Surface,Surface density of amino acid L,Surf_Count_L / surface_area
+132,Surf_Dens_Acd,Surface,"Surface density of acidic amino acids (D,E)",Surf_Count_Acd / surface_area
+140,Surf_EN,Surface,Entropy weighted by surface AA composition,Entropy_AAindex*surface AAC sum over 20 AAs computed over surface residues only
+145,AVG_Surf_EN,Surface,Average entropy weighted by surface AA composition,Surf_EN / No_of_surface_residues
+173,Surf_Patch_MASA_P90-P10,Surface,P90-P10 of surface per-residue MASA profile computed over local residue patches (Cα-Cα distance <= 8 Å),"P90-P10 of patch-based MASA, computed over local residue patches defined by neighboring Cα atoms within 8 Å on molecular surface"
+176,Surf_Patch_GRAVY_IQR,Surface,IQR of surface per-residue GRAVY profile computed over local residue patches (Cα-Cα distance <= 8 Å),"IQR of patch-based GRAVY, computed over local residue patches defined by neighboring Cα atoms within 8 Å on molecular surface"
+201,MX_len,Structure,Max pairwise surface Cα distance,Max pairwise surface Cα distance
+240,Surf_Area_DSSP_AH,Secondary Structure,Surface area of Alpha-helix (H),Surface area of Alpha-helix (H) in DSSP_Surface_Area (ACC)
+361,Surf_DR2_Count_E,Secondary Structure,Surface count of amino acid E in not Helix and Strand regions,"Count E residues in ""not H/G/I/P/B/E"" regions in DSSP string, restricted to surface residues"
+387,RSA_MASA_65,Sequence,Fraction of residues with RSA>=0.65 * Mean(MASA of RSA>=0.65),RSA_Frac_65 * Mean(MASA of RSA>=0.65)
+422,Count_Cont_pLDDT_80_<5,Disorder,Count of (length of contiguous residues with pLDDT<80) <5,Count of (length of contiguous residues with pLDDT<80) <5
+508,Count_S_not_rbst_res_pLDDT_60,Disorder,Count of amino acid S in not robust residues assessed using pLDDT <60,Count S in low-confidence regions assessed using pLDDT <60
+519,CG_not_rbst_res_pLDDT_70,Disorder,Charge weighted by AA composition of not robust residues assessed using pLDDT <70,Charge*AAC sum over not robust residues assessed using pLDDT <70
+557,Count_E_not_rbst_res_pLDDT_80,Disorder,Count of amino acid E in not robust residues assessed using pLDDT <80,Count E in low-confidence regions assessed using pLDDT <80
+558,Count_G_not_rbst_res_pLDDT_80,Disorder,Count of amino acid G in not robust residues assessed using pLDDT <80,Count G in low-confidence regions assessed using pLDDT <80
+561,Count_L_not_rbst_res_pLDDT_80,Disorder,Count of amino acid L in not robust residues assessed using pLDDT <80,Count L in low-confidence regions assessed using pLDDT <80
+562,Count_K_not_rbst_res_pLDDT_80,Disorder,Count of amino acid K in not robust residues assessed using pLDDT <80,Count K in low-confidence regions assessed using pLDDT <80
+575,Q1_pLDDT,Confidence,1st quantile of pLDDT of all residues,1st quantile of pLDDT of all residues
+580,Count_Cont_PAE_5_>=5,Disorder,Count of (length of contiguous residues assessed using residue-based PAE with a smooth window of 5 residues) >=5,Count of (length of contiguous residues assessed using residue-based PAE with a smooth window of 5 residues) >=5
+613,Count_I_not_rbst_res_PAE_5,Disorder,Count of amino acid I in low-confidence regions assessed using residue-based PAE with a smooth window of 5 residues,Count I in not robust residues assessed using residue-based PAE with a smooth window of 5 residues
+624,Loose_PAE_5,Disorder,Fraction of loose regions assessed using residue-based PAE with a smooth window of 5 residues,Fraction of loose regions assessed using residue-based PAE with a smooth window of 5 residues
+705,Mean_RMSD,Structure,Mean of RMSD among top-5 unrelaxed vs rank_001 (Cα-aligned),Mean of RMSD among top-5 unrelaxed vs rank_001 (Cα-aligned)
+713,3DZD_007,Shape,3DZD invariant #7 (order = 20) of protein surface from EDTSurf,3DZD invariant #7 (order = 20) of protein surface from EDTSurf
+792,3DZD_086,Shape,3DZD invariant #86 (order = 20) of protein surface from EDTSurf,3DZD invariant #86 (order = 20) of protein surface from EDTSurf
+810,3DZD_104,Shape,3DZD invariant #104 (order = 20) of protein surface from EDTSurf,3DZD invariant #104 (order = 20) of protein surface from EDTSurf
+819,3DZD_113,Shape,3DZD invariant #113 (order = 20) of protein surface from EDTSurf,3DZD invariant #113 (order = 20) of protein surface from EDTSurf
+827,3DZD_121,Shape,3DZD invariant #121 (order = 20) of protein surface from EDTSurf,3DZD invariant #121 (order = 20) of protein surface from EDTSurf
